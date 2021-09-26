@@ -1,14 +1,14 @@
 class Timer {
-	constructor() {
+	constructor(theClass) {
 		this.time = 0;
-		this.timer = document.querySelector('#time');
-		console.log(this.timer)
+		this.stopwatch = document.querySelector('.' + theClass);//time);
+		console.log(this.stopwatch)
 		this.start_btn = document.querySelector('#start_btn');
 		this.pause_btn = document.querySelector('#pause_btn');
 		this.reset_btn = document.querySelector('#reset_btn');
 		this.total = document.querySelector('#total');
 		console.log('in constructor');
-		// this.timer.innerText = 'hello';
+		// this.stopwatch.innerText = 'hello';
 	}
 
 	start() {
@@ -39,21 +39,26 @@ class Timer {
 		this.total.innerHTML = 'Total: ' + this.getTotal(this.time);
 		console.log("before reset " + this.time);
 		this.time = 0;
-		this.timer.innerHTML = this.toHHMMSS(this.time);
+		this.stopwatch.innerHTML = this.toHHMMSS(this.time);
 		console.log("in reset after toHHMMSS");
 		this.hideBtn([this.pause_btn, this.reset_btn]);
 		this.showBtn([this.start_btn]);
 	}
 
 	showTime() {
-		console.log("in showtime " + this.time)
-		this.time = parseInt(this.time);
-		this.time += 1;
-		this.time = parseInt(this.time);
-		// this.timer.innerHTML = "hello";
-		// this.timer.innerHTML = "this.time";
-		this.timer.innerHTML = this.toHHMMSS(this.time);
-		console.log("at the end of showtime")
+		// this.time = parseInt(this.time);
+		if (typeof(this.time) != "number") {
+			this.time = 0;
+			console.log("in showtime " + this.time)
+			console.log("not number")
+		} else {
+			this.time += 1;			
+		}
+		// this.time = parseInt(this.time);
+		// this.stopwatch.innerHTML = "hello";
+		// this.stopwatch.innerHTML = "this.time";
+		this.stopwatch.innerHTML = this.toHHMMSS;//(this.time);
+		console.log("at the end of showtime");
 	}
 
 	toHHMMSS() {
