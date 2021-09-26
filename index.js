@@ -1,4 +1,4 @@
-const timer = document.querySelector('#time');
+const timer = document.querySelector('.time');
 const start_btn = document.querySelector('#start_btn');
 const pause_btn = document.querySelector('#pause_btn');
 const reset_btn = document.querySelector('#reset_btn');
