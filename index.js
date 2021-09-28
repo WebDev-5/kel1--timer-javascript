@@ -1,8 +1,4 @@
 const timer = document.querySelector('.time');
-const start_btn = document.querySelector('#start_btn');
-const pause_btn = document.querySelector('#pause_btn');
-const reset_btn = document.querySelector('#reset_btn');
-const total = document.querySelector('#total');
 
 let time = 0,
   interval;
@@ -12,35 +8,34 @@ function showTime() {
   timer.innerHTML = toHHMMSS(time);
 }
 
-function start() {
+function start(start, pause, total, reset) {
   interval = setInterval(showTime, 1000);
-  hideBtn([start_btn]);
+  hideBtn([start]);
   hideTotal(total);
-  showBtn([pause_btn, reset_btn]);
+  showBtn([pause, reset]);
 }
 
-function pause() {
+function pause(pause) {
   if (interval) {
     clearInterval(interval);
     interval = null;
-    pause_btn.innerHTML = 'RESUME';
+    pause.innerHTML = 'CONTINUE';
   } else {
     interval = setInterval(showTime, 1000);
-    pause_btn.innerHTML = 'PAUSE';
+    pause.innerHTML = 'PAUSE';
   }
 }
 
-function reset() {
+function reset(start, pause, total, reset) {
   clearInterval(interval);
   interval = null;
-  pause_btn.innerHTML = 'PAUSE';
+  pause.innerHTML = 'PAUSE';
   showTotal(total);
-  //total.innerHTML = 'Total waktu pengerjaan: '
   total.innerHTML = 'Total : ' + toTotal(time) ;
   time = 0;
   timer.innerHTML = toHHMMSS(time);
-  hideBtn([pause_btn, reset_btn]);
-  showBtn([start_btn]);
+  hideBtn([pause, reset]);
+  showBtn([start]);
 }
 
 function toHHMMSS(time) {
@@ -64,7 +59,7 @@ function toTotal(time) {
     minutes = `${minutes}`;
     seconds = `${seconds}`;
   
-    return hours + ' Hours ' + minutes + ' Minute ' + seconds + ' Seconds';
+    return hours + ' Hours ' + minutes + ' Minutes ' + seconds + ' Seconds';
 }
 
 function showBtn(btnArr) {
