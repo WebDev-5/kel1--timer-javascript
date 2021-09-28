@@ -1,40 +1,42 @@
-const timer = document.querySelector('.time');
+// const timer = document.querySelector('.time');
+// const timer2 = document.querySelector('.time2');
 
 let time = 0,
   interval;
 
-function showTime() {
+function showTime(tim) {
   time += 1;
-  timer.innerHTML = toHHMMSS(time);
+  tim.innerHTML = toHHMMSS(time);
+  tim.innerHTML = toHHMMSS(time);
 }
 
-function start(start, pause, total, reset) {
-  interval = setInterval(showTime, 1000);
-  hideBtn([start]);
+function start(startx, pause, total, reset, tim) {
+  interval = setInterval(function() { showTime(tim); }, 1000);
+  hideBtn([startx]);
   hideTotal(total);
   showBtn([pause, reset]);
 }
 
-function pause(pause) {
+function pause(pausex, tim) {
   if (interval) {
     clearInterval(interval);
     interval = null;
-    pause.innerHTML = 'CONTINUE';
+    pausex.innerHTML = 'CONTINUE';
   } else {
-    interval = setInterval(showTime, 1000);
-    pause.innerHTML = 'PAUSE';
+    interval = setInterval(function() { showTime(tim); }, 1000);
+    pausex.innerHTML = 'PAUSE';
   }
 }
 
-function reset(start, pause, total, reset) {
+function reset(start, pause, total, resetx, tim) {
   clearInterval(interval);
   interval = null;
   pause.innerHTML = 'PAUSE';
   showTotal(total);
   total.innerHTML = 'Total : ' + toTotal(time) ;
   time = 0;
-  timer.innerHTML = toHHMMSS(time);
-  hideBtn([pause, reset]);
+  tim.innerHTML = toHHMMSS(time);
+  hideBtn([pause, resetx]);
   showBtn([start]);
 }
 

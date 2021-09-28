@@ -14,10 +14,19 @@
 	<div class ="container">
 		<div class="time">00:00:00</div>
 		<div class="btns-container">
-			<button id="start_btn" onclick="start(start_btn, pause_btn, total, reset_btn)">START</button>
-			<button id="pause_btn" onclick="pause(pause_btn)">PAUSE</button>
-			<button id="reset_btn" onclick="reset(start_btn, pause_btn, total, reset_btn)">STOP</button>
+			<button id="start_btn" onclick="start(start_btn, pause_btn, total, reset_btn, document.querySelector('.time'))">START</button>
+			<button id="pause_btn" onclick="pause(pause_btn, document.querySelector('.time'))">PAUSE</button>
+			<button id="reset_btn" onclick="reset(start_btn, pause_btn, total, reset_btn, document.querySelector('.time'))">STOP</button>
 			<p id="total">Total : 0 Hours 0 menute 0 seconds</p>
+		</div>
+	</div>
+	<div class ="container">
+		<div class="time2">00:00:00</div>
+		<div class="btns-container">
+			<button id="start_btn2" onclick="start(start_btn2, pause_btn2, total2, reset_btn2, document.querySelector('.time2'))">START</button>
+			<button id="pause_btn2" onclick="pause(pause_btn2, document.querySelector('.time2'))">PAUSE</button>
+			<button id="reset_btn2" onclick="reset(start_btn2, pause_btn2, total2, reset_btn2, document.querySelector('.time2'))">STOP</button>
+			<p id="total2">Total : 0 Hours 0 menute 0 seconds</p>
 		</div>
 	</div>
 		
