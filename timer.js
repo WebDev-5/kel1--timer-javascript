@@ -1,14 +1,21 @@
-class Timer {
-	constructor(theClass) {
+class Stopwatch {
+	constructor(stopwatchId, startId, pauseId, resetId, totalId) {
 		this.time = 0;
-		this.stopwatch = document.querySelector('.' + theClass);//time);
-		console.log(this.stopwatch)
-		this.start_btn = document.querySelector('#start_btn');
-		this.pause_btn = document.querySelector('#pause_btn');
-		this.reset_btn = document.querySelector('#reset_btn');
-		this.total = document.querySelector('#total');
-		console.log('in constructor');
-		// this.stopwatch.innerText = 'hello';
+		this.stopwatch = document.querySelector('#' + stopwatchId);
+		this.start_btn = document.querySelector('#' + startId);
+		this.pause_btn = document.querySelector('#' + pauseId);
+		this.reset_btn = document.querySelector('#' + resetId);
+		this.total = document.querySelector('#' + totalId);
+
+		this.showTime = this.showTime.bind(this);
+	}
+
+	getTime() {
+		return this.time;
+	}
+
+	setTime(newTime) {
+		this.time = newTime;
 	}
 
 	start() {
@@ -16,7 +23,6 @@ class Timer {
 		this.hideBtn([this.start_btn]);
 		this.hideTotal(this.total);
 		this.showBtn([this.pause_btn, this.reset_btn]);
-		// console.log('Hello');
 	}
 
 	pause() {
@@ -35,44 +41,11 @@ class Timer {
 		this.interval = null;
 		this.pause_btn.innerHTML = 'PAUSE';
 		this.showTotal(this.total);
-		//total.innerHTML = 'Total waktu pengerjaan: '
 		this.total.innerHTML = 'Total: ' + this.getTotal(this.time);
-		console.log("before reset " + this.time);
 		this.time = 0;
 		this.stopwatch.innerHTML = this.toHHMMSS(this.time);
-		console.log("in reset after toHHMMSS");
 		this.hideBtn([this.pause_btn, this.reset_btn]);
 		this.showBtn([this.start_btn]);
-	}
-
-	showTime() {
-		// this.time = parseInt(this.time);
-		if (typeof(this.time) != "number") {
-			this.time = 0;
-			console.log("in showtime " + this.time)
-			console.log("not number")
-		} else {
-			this.time += 1;			
-		}
-		// this.time = parseInt(this.time);
-		// this.stopwatch.innerHTML = "hello";
-		// this.stopwatch.innerHTML = "this.time";
-		this.stopwatch.innerHTML = this.toHHMMSS;//(this.time);
-		console.log("at the end of showtime");
-	}
-
-	toHHMMSS() {
-		console.log("in toHHMMSS");
-		let hours = Math.floor(this.time / 3600);
-		let minutes = Math.floor((this.time - hours * 3600) / 60);
-		let seconds = this.time - hours * 3600 - minutes * 60;
-
-		hours = `${hours}`.padStart(2, '0');
-		minutes = `${minutes}`.padStart(2, '0');
-		seconds = `${seconds}`.padStart(2, '0');
-		console.log(hours + ':' + minutes + ':' + seconds)
-
-		return hours + ':' + minutes + ':' + seconds;
 	}
 
 	getTotal(time) {
@@ -87,6 +60,26 @@ class Timer {
 		return hours + ' jam ' + minutes + ' menit ' + seconds + ' detik';
 	}
 
+	showTime = function () {
+		this.setTime(this.getTime() + 1);
+		this.stopwatch.innerHTML = this.toHHMMSS();
+	}
+
+	toHHMMSS() {
+		let sec = this.getTime();
+		console.log("in toHHMMSS " + sec);
+		let hours = Math.floor(sec / 3600);
+		let minutes = Math.floor((sec - hours * 3600) / 60);
+		let seconds = sec - hours * 3600 - minutes * 60;
+
+		hours = `${hours}`.padStart(2, '0');
+		minutes = `${minutes}`.padStart(2, '0');
+		seconds = `${seconds}`.padStart(2, '0');
+		console.log("in toHHMMSS " + hours + ':' + minutes + ':' + seconds)
+
+		return hours + ':' + minutes + ':' + seconds;
+	}
+
 	showBtn(btnArr) {
 		btnArr.forEach((btn) => (btn.style.display = 'inline-block'));
 	}
@@ -94,9 +87,11 @@ class Timer {
 	hideBtn(btnArr) {
 		btnArr.forEach((btn) => (btn.style.display = 'none'));
 	}
+
 	showTotal(total) {
 		total.style.display = "block";
 	}
+
 	hideTotal(total) {
 		total.style.display = "none";
 	}
