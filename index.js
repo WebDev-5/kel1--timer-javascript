@@ -1,46 +1,43 @@
-const timer = document.querySelector('.time');
-const start_btn = document.querySelector('#start_btn');
-const pause_btn = document.querySelector('#pause_btn');
-const reset_btn = document.querySelector('#reset_btn');
-const total = document.querySelector('#total');
+// const timer = document.querySelector('.time');
+// const timer2 = document.querySelector('.time2');
 
 let time = 0,
   interval;
 
-function showTime() {
+function showTime(tim) {
   time += 1;
-  timer.innerHTML = toHHMMSS(time);
+  tim.innerHTML = toHHMMSS(time);
+  tim.innerHTML = toHHMMSS(time);
 }
 
-function start() {
-  interval = setInterval(showTime, 1000);
-  hideBtn([start_btn]);
+function start(startx, pause, total, reset, tim) {
+  interval = setInterval(function() { showTime(tim); }, 1000);
+  hideBtn([startx]);
   hideTotal(total);
-  showBtn([pause_btn, reset_btn]);
+  showBtn([pause, reset]);
 }
 
-function pause() {
+function pause(pausex, tim) {
   if (interval) {
     clearInterval(interval);
     interval = null;
-    pause_btn.innerHTML = 'RESUME';
+    pausex.innerHTML = 'CONTINUE';
   } else {
-    interval = setInterval(showTime, 1000);
-    pause_btn.innerHTML = 'PAUSE';
+    interval = setInterval(function() { showTime(tim); }, 1000);
+    pausex.innerHTML = 'PAUSE';
   }
 }
 
-function reset() {
+function reset(start, pause, total, resetx, tim) {
   clearInterval(interval);
   interval = null;
-  pause_btn.innerHTML = 'PAUSE';
+  pause.innerHTML = 'PAUSE';
   showTotal(total);
-  //total.innerHTML = 'Total waktu pengerjaan: '
   total.innerHTML = 'Total : ' + toTotal(time) ;
   time = 0;
-  timer.innerHTML = toHHMMSS(time);
-  hideBtn([pause_btn, reset_btn]);
-  showBtn([start_btn]);
+  tim.innerHTML = toHHMMSS(time);
+  hideBtn([pause, resetx]);
+  showBtn([start]);
 }
 
 function toHHMMSS(time) {
@@ -64,7 +61,7 @@ function toTotal(time) {
     minutes = `${minutes}`;
     seconds = `${seconds}`;
   
-    return hours + ' Hours ' + minutes + ' Minute ' + seconds + ' Seconds';
+    return hours + ' Hours ' + minutes + ' Minutes ' + seconds + ' Seconds';
 }
 
 function showBtn(btnArr) {
