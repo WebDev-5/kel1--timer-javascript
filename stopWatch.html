@@ -20,7 +20,8 @@
   <title>Multi Watch</title>
   <link rel="shortcut icon" href="favicon.ico" />
   <link rel="stylesheet" type="text/css" href="styles/stopwatch.css">
-  <link href='https://fonts.googleapis.com/css?family=Allerta Stencil' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Allerta Stencil' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Baloo Chettan 2' rel='stylesheet'>
 </head>
 
 <!-- Modal for showing Notes-->
@@ -46,22 +47,21 @@
 
 <body class='container'>
   <div class="row">
-    <div class="container-fluid">
-      <h1 class="page-header text-center"> Multi Stop Watch </h1>
-      <div class="input-group">
-        <input id='title' type='text' class="input_title" placeholder="Enter title for StopWatch" />
-        <button id="addWatch-btn">Add stopwatch </button>
+    <div class="container-fluid baloo-font">
+      <h1 class="page-header text-center">STOPWATCH</h1>
+      <form class="text-center">
+        <input id='title' type="text" class="baloo-font" placeholder="Enter Title for Stopwatch">
+        <input id="addWatch-btn" type="submit" class="baloo-font" value="ADD">
         <button id="removeAll_btn">REMOVE ALL</button>
-      </div>
+      </form>
+      <hr>
     </div>
   </div>
-  <hr>
   <div id="stopwatches">
     
   </div>
 
   <!--container for Stopwatches -->
-  <hr>
   <!-- <div class="removeAllArea">
     <button id="removeAll_btn">REMOVE ALL</button>
   </div> -->
