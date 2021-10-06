@@ -151,6 +151,10 @@ function PausePlayToggle(elem, id) {
       if (listStopWatch[i].id == id) {
         listStopWatch[i].status = 1;
       }
+      else {
+        listStopWatch[i].status = 0;
+      }
+      location.reload();
     }
   }
 }
