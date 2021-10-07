@@ -79,7 +79,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Multi Stopwatch is Multi Stopwatch is an application that was built to fulfill a mini project assignment for Web Development course, which was developed by Kelompok 5 D4 2019 Politeknik Negeri Bandung.
+Multi Stopwatch is an application that was built to fulfill a mini project assignment for Web Development course, which was developed by Webdev Kelompok 5 D4 2019 Politeknik Negeri Bandung.
 This an application that is a simulation of a stopwatch or timer, which can be used to calculate and set the time for each activity you do. This application is built using HTML, CSS, and Vanilla Javascript. 
 Still remember, take advantage and don't waste your time!
 
