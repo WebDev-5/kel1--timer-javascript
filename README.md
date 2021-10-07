@@ -34,7 +34,7 @@
   <p align="center">
     An awesome Stopwatch to manage your time!
     <br />
-    <a href="https://github.com/WebDev-5/kel5-timer-javascript.git"><strong>Open Application »</strong></a>
+    <a href="https://mrizkymaulidhan.github.io/kel5-timer-javascript/"><strong>Open Application »</strong></a>
     <br />
     <br />
     <a href="https://github.com/WebDev-5/kel5-timer-javascript">View Demo</a>
