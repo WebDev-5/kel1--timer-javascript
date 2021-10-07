@@ -180,7 +180,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See [LICENSE.md](https://github.com/WebDev-5/kel5-timer-javascript/blob/main/LICENCE.md) for more information.
+Distributed under the MIT License. See [LICENSE.md](https://github.com/WebDev-5/kel5-timer-javascript/blob/main/LICENSE.md) for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
