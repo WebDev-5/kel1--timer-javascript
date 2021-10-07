@@ -25,7 +25,8 @@ function StopWatchBody(Watch) {
         Watch.id +
         ")'>Pause</button>"
       );
-    } else {
+    }
+	else {
       return (
         "<button id='start_btn' onclick='PausePlayToggle(this, " +
         Watch.id +
@@ -172,8 +173,8 @@ function PausePlayToggle(elem, id) {
       else {
         listStopWatch[i].status = 0;
       }
-      location.reload();
     }
+	location.reload();
   }
 }
 
