@@ -26,7 +26,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/favicon.ico" alt="Logo" width="80" height="80">
+    <img src="images/icon.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Multi Stopwatch Kelompok 5</h3>
@@ -34,7 +34,7 @@
   <p align="center">
     An awesome Stopwatch to manage your time!
     <br />
-    <a href="https://github.com/WebDev-5/kel5-timer-javascript"><strong>Open Application »</strong></a>
+    <a href="https://github.com/WebDev-5/kel5-timer-javascript.git"><strong>Open Application »</strong></a>
     <br />
     <br />
     <a href="https://github.com/WebDev-5/kel5-timer-javascript">View Demo</a>
@@ -60,7 +60,6 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
