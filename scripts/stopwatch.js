@@ -2,6 +2,7 @@
 var listStopWatch = [];
 var idCounter = 1; //gives id to the watch object
 
+
 //given time in seconds returns a string in format hh:mm:ss
 function GiveTimeString(remSeconds) {
   var secs = remSeconds % 60;
@@ -54,17 +55,21 @@ function StopWatchBody(Watch) {
     "'>" +
     GiveTimeString(Watch.curTime - Watch.startTime) +
     "</h2>" +
+    "<h2 class='total_jam' + id='watch" +
+    Watch.id +
+    "'>" +
+    "Total : " + GiveTimeString(Watch.curTime - Watch.startTime) +
+    "</h2>" +
     "</div>" +
-    // "<div class='panel-footer'>" +
     "<div class='footer'>" +
     "<div class='btn-group btn-group-justified'>" +
     pausePlayButtonStr(Watch.status) +
     "<button id='restart_btn' onclick='RestartClock(" +
     Watch.id +
     ")'>Restart</button>" +
-    "<button id='remove_btn1' onclick='RemoveOne(" +
+    "<button id='remove_btn1' onclick='StopClock(" +
     Watch.id +
-    ")'>Remove</button>" +
+    ")'>Stop</button>" +
     "<!/div>" +
     "</div>" +
     "</div>" +
@@ -127,6 +132,21 @@ function RestartClock(id) {
     }
   }
 }
+
+function StopClock(id) {
+  for (var i = 0; i < listStopWatch.length; i++) {
+    if (listStopWatch[i].id == id) {
+      listStopWatch[i].startTime = Date.now();
+      listStopWatch[i].curTime = Date.now();
+      listStopWatch[i].status = 0;
+      StopWatchBody(listStopWatch[i].id);
+      location.reload();
+      showTotal(total);
+      document.getElementById("watch" + id).innerHTML = GiveTimeString(0);
+    }
+  }
+}
+
 
 //for pause play
 function PausePlayToggle(elem, id) {
@@ -226,3 +246,11 @@ console.log(addWatchButton.textContent)
 var removeAllButton = document.getElementById("removeAll_btn");
 removeAllButton.addEventListener("click", RemoveAll);
 console.log(removeAllButton.textContent);
+
+const total = document.querySelector('#total_jam');
+function showTotal(Total) {
+  Total.style.display = "block";
+}
+function hideTotal(Total) {
+  Total.style.display = "none";
+}
