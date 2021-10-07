@@ -172,8 +172,8 @@ function PausePlayToggle(elem, id) {
       else {
         listStopWatch[i].status = 0;
       }
-      location.reload();
     }
+    location.reload();
   }
 }
 
