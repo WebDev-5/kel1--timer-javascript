@@ -64,7 +64,7 @@ function StopWatchBody(Watch) {
     ")'>Restart</button>" +
     "<button id='remove_btn1' onclick='RemoveOne(" +
     Watch.id +
-    ")'>Remove</button>" +
+    ")'>Stop</button>" +
     "<!/div>" +
     "</div>" +
     "</div>" +
@@ -215,7 +215,6 @@ function detectEnter(event) {
     AddWatch();
   }
 }
-
 
 //Set event listeners for each target.
 
