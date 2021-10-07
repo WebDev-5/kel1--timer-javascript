@@ -188,13 +188,13 @@ button {
   color: white;
   cursor: pointer;
 }
+
 button:hover {
   filter: grayscale(0.5);
 }
 button:focus {
   outline: none;
 }
-
 
 #start_btn {
   background: #5CDB95;
@@ -215,15 +215,15 @@ button:focus {
 
 #remove_btn {
   background: #FF5C58;
-  font-weight: 900;
+  font-size: 20px;
   text-align: center;
+  float: right;
 }
 
 #remove_btn1 {
   background: #FF5C58;
   width: 172px;
 }
-
 
 #removeAll_btn{
   background-color: #d9534f;
