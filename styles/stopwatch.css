@@ -88,15 +88,6 @@ input[type = "submit"]:hover{
   white-space: nowrap;
 }
 
-.jam {
-  color: white;
-  text-align: center;
-  font-family: 'Allerta Stencil';
-  font-weight: lighter;
-  font-size: 30px;
-  text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
-}
-
 .bodyTimer {
   border : 3px solid #D6F1F2;
   border-radius: 24px;
@@ -144,7 +135,27 @@ input[type = "submit"]:hover{
 }
 
 .body {
+  /* background-color: burlywood; */
   padding: 15px;
+}
+
+.jam {
+  color: white;
+  text-align: center;
+  font-family: 'Allerta Stencil';
+  font-weight: lighter;
+  font-size: 40px;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.1);
+  margin-top: -10px;
+  /* margin-bottom: -10px; */
+}
+
+.total_jam {
+  /* margin-bottom: -5px; */
+  text-align: center;
+  font-weight: lighter;
+  font-family: 'Baloo Chettan 2';
+  /* display: none; */
 }
 
 .footer {
@@ -188,13 +199,13 @@ button {
   color: white;
   cursor: pointer;
 }
-
 button:hover {
   filter: grayscale(0.5);
 }
 button:focus {
   outline: none;
 }
+
 
 #start_btn {
   background: #5CDB95;
@@ -215,15 +226,15 @@ button:focus {
 
 #remove_btn {
   background: #FF5C58;
-  font-size: 20px;
+  font-weight: 900;
   text-align: center;
-  float: right;
 }
 
 #remove_btn1 {
   background: #FF5C58;
   width: 172px;
 }
+
 
 #removeAll_btn{
   background-color: #d9534f;
