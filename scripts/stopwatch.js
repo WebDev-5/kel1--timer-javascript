@@ -236,7 +236,6 @@ function detectEnter(event) {
   }
 }
 
-
 //Set event listeners for each target.
 
 var addWatchButton = document.getElementById("addWatch-btn");

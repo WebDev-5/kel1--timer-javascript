@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2017 Yogesh Sharma (1995YogeshSharma)
+Copyright (c) 2021 Webdev Kelompok5 D4-Teknik Informatika Polban'19
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
