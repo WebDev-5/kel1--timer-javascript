@@ -160,6 +160,7 @@ input[type = "submit"]:hover{
 
 .total_jam {
   /* margin-bottom: -5px; */
+  color: #63B4B8;
   text-align: center;
   font-weight: lighter;
   font-family: 'Baloo Chettan 2';
