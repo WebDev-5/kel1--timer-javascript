@@ -236,6 +236,7 @@ button:focus {
   background: #FF5C58;
   font-weight: 900;
   text-align: center;
+  float: right;
 }
 
 #remove_btn1 {

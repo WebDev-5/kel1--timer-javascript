@@ -2,7 +2,6 @@
 var listStopWatch = [];
 var idCounter = 1; //gives id to the watch object
 
-
 //given time in seconds returns a string in format hh:mm:ss
 function GiveTimeString(theMilliseconds) {
   var secs = Math.floor(theMilliseconds / 1000);
@@ -110,14 +109,13 @@ function Watch(
 ) {
   if (title == null) title = document.getElementById("title").value;
   this.id = idCounter;
-  idCounter = idCounter + 1;
+  idCounter += 1;
   this.isRunning = isRunning; // 0 -> pause state 1 -> play state
   this.title = title;
   this.startTime = startTime;
   this.timeDelays = timeDelays;
   this.pauseTime = pauseTime;
   this.continueTime = continueTime;
-
 }
 
 //adds watch to DOM
@@ -285,6 +283,7 @@ var removeAllButton = document.getElementById("removeAll_btn");
 removeAllButton.addEventListener("click", RemoveAll);
 
 const total = document.querySelector('#total_jam');
+
 function showTotal(Total) {
   Total.style.display = "block";
 }
