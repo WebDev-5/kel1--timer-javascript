@@ -158,10 +158,10 @@ function RestartClock(id) {
 function StopClock(id) {
   for (var i = 0; i < listStopWatch.length; i++) {
     if (listStopWatch[i].id == id) {
-      listStopWatch[i].isRunning = 0;
       listStopWatch[i].startTime = 0;
       document.getElementById("watch" + id).innerHTML = GiveTimeString(0);
       document.getElementById("total_jam" + id).style.color = 'white';
+      listStopWatch[i].isRunning = 0;
       showTotal(total);
       listStopWatch[i].timeDelays = 0;
       listStopWatch[i].pauseTime = 0;
