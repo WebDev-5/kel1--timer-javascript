@@ -22,7 +22,7 @@ function GiveTimeStringTotal(theMilliseconds) {
   if (hrs < 10) hrs = hrs;
   if (mins < 10) mins = mins;
   if (secs < 10) secs = secs;
-  return hrs +" Hours " + mins +" Munites " + secs +" Seconds ";
+  return hrs +" Hours " + mins +" Minutes " + secs +" Seconds ";
 }
 
 //returns html body for the watch
@@ -75,7 +75,7 @@ function StopWatchBody(Watch) {
     "'>" +
     GiveTimeString(lastOpened - startTime2 - Watch.timeDelays) +
     "</h2>" +
-    "<h2 class='total_jam' + id='watch" +
+    "<h2 class='total_jam' + id='total_jam" +
     Watch.id +
     "'>" +
     "Total : " + GiveTimeStringTotal(lastOpened - startTime2 - Watch.timeDelays) +
@@ -225,12 +225,19 @@ function updateClocks() {
   for (var i = 0; i < listStopWatch.length; i++) {
     if (listStopWatch[i].isRunning !== 0) {
       var tempId = "watch" + listStopWatch[i].id;
+      var tempTotal = "total_jam" + listStopWatch[i].id;
       var tempModalId = "note" + listStopWatch[i].id;
       document.getElementById(tempId).innerHTML = GiveTimeString(
         Date.now() - listStopWatch[i].startTime - listStopWatch[i].timeDelays
       );
+      document.getElementById(tempTotal).innerHTML = GiveTimeStringTotal(
+        Date.now() - listStopWatch[i].startTime - listStopWatch[i].timeDelays
+      );
       if (document.getElementById(tempModalId) !== null) {
         document.getElementById(tempModalId).innerHTML = GiveTimeString(
+          Date.now() - listStopWatch[i].startTime - listStopWatch[i].timeDelays
+        );
+        document.getElementById(tempTotal).innerHTML = GiveTimeStringTotal(
           Date.now() - listStopWatch[i].startTime - listStopWatch[i].timeDelays
         );
       }
