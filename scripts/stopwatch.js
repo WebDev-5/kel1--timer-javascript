@@ -209,11 +209,10 @@ function PausePlayToggle(elem, id) {
 
 //removes all clocks
 function RemoveAll() {
+  localStorage.clear();
   listStopWatch = [];
   idCounter = 1;
   $("#stopwatches").html("");
-  localStorage.removeItem("myCookie");
-  localStorage.removeItem("lastOpened");
 }
 
 //updates the time in clocks
@@ -232,7 +231,6 @@ function updateClocks() {
       }
     }
   }
-  //localStorage.setItem("myCookie", JSON.stringify(listStopWatch));
 }
 
 //clocks get updated each second because of this
