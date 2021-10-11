@@ -5,7 +5,6 @@ var idCounter = 1; //gives id to the watch object
 
 //given time in seconds returns a string in format hh:mm:ss
 function GiveTimeString(theMilliseconds) {
-  console.log(theMilliseconds);
   var secs = Math.floor(theMilliseconds / 1000);
   var mins = Math.floor(secs / 60);
   var hrs = Math.floor(secs / 3600);
@@ -44,8 +43,6 @@ function StopWatchBody(Watch) {
   } else {
     var startTime2 = Watch.startTime;
   }
-  console.log(lastOpened);
-  console.log(lastOpened - Watch.startTime - Watch.timeDelays);
   var retStr =
     "<div class='bodyTimer' id='" +
     Watch.id +
@@ -177,7 +174,6 @@ function PausePlayToggle(elem, id) {
       if (listStopWatch[i].id == id) {
         listStopWatch[i].isRunning = 0;
         listStopWatch[i].pauseTime = Date.now();
-        console.log("paused");
       }
     }
   } else if (elem.innerHTML == "Play") {
