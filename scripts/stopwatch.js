@@ -15,6 +15,17 @@ function GiveTimeString(theMilliseconds) {
   return hrs + ":" + mins + ":" + secs;
 }
 
+function GiveTimeStringTotal(theMilliseconds) {
+  var secs = Math.floor(theMilliseconds / 1000);
+  var mins = Math.floor(secs / 60);
+  var hrs = Math.floor(secs / 3600);
+  secs = secs % 60
+  if (hrs < 10) hrs = hrs;
+  if (mins < 10) mins = mins;
+  if (secs < 10) secs = secs;
+  return hrs +" Hours " + mins +" Munites " + secs +" Seconds ";
+}
+
 //returns html body for the watch
 function StopWatchBody(Watch) {
   var pausePlayButtonStr = function (isRunning) {
@@ -68,7 +79,7 @@ function StopWatchBody(Watch) {
     "<h2 class='total_jam' + id='watch" +
     Watch.id +
     "'>" +
-    "Total : " + GiveTimeString(lastOpened - startTime2 - Watch.timeDelays) +
+    "Total : " + GiveTimeStringTotal(lastOpened - startTime2 - Watch.timeDelays) +
     "</h2>" +
     "</div>" +
     "<div class='footer'>" +
