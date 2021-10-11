@@ -22,7 +22,7 @@ function GiveTimeStringTotal(theMilliseconds) {
   if (hrs < 10) hrs = hrs;
   if (mins < 10) mins = mins;
   if (secs < 10) secs = secs;
-  return hrs +" Hours " + mins +" Minutes " + secs +" Seconds ";
+  return "Total: " + hrs +" Hours " + mins +" Minutes " + secs +" Seconds ";
 }
 
 //returns html body for the watch
@@ -78,7 +78,7 @@ function StopWatchBody(Watch) {
     "<h2 class='total_jam' + id='total_jam" +
     Watch.id +
     "'>" +
-    "Total : " + GiveTimeStringTotal(lastOpened - startTime2 - Watch.timeDelays) +
+    GiveTimeStringTotal(lastOpened - startTime2 - Watch.timeDelays) +
     "</h2>" +
     "</div>" +
     "<div class='footer'>" +
@@ -160,13 +160,14 @@ function StopClock(id) {
     if (listStopWatch[i].id == id) {
       listStopWatch[i].isRunning = 0;
       listStopWatch[i].startTime = 0;
+      document.getElementById("watch" + id).innerHTML = GiveTimeString(0);
+      document.getElementById("total_jam" + id).style.color = 'white';
+      showTotal(total);
       listStopWatch[i].timeDelays = 0;
       listStopWatch[i].pauseTime = 0;
       listStopWatch[i].continueTime = 0;
       StopWatchBody(listStopWatch[i].id);
       location.reload();
-      showTotal(total);
-      document.getElementById("watch" + id).innerHTML = GiveTimeString(0);
     }
   }
 }
