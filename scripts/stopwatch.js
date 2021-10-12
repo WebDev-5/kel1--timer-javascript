@@ -165,9 +165,9 @@ function RestartClock(id) {
 }
 
 function StopClock(id) {
-  console.log("stop"+id);
-  $("#pause_btn" + id).text("Play");
-  $("#pause_btn" + id).attr({"id": "start_btn","style": "background: #5CDB95; width: 172px;"});
+  document.querySelector("#pause_btn"+id).innerHTML = "Play";
+  document.querySelector("#pause_btn"+id).setAttribute('style', "background: #5CDB95; width: 172px;");
+  document.querySelector("#pause_btn"+id).setAttribute('id', "start_btn"+id);
   for (var i = 0; i < listStopWatch.length; i++) {
     if (listStopWatch[i].id == id) {
       listStopWatch[i].startTime = 0;
@@ -178,7 +178,6 @@ function StopClock(id) {
       listStopWatch[i].pauseTime = 0;
       listStopWatch[i].continueTime = 0;
       StopWatchBody(listStopWatch[i].id);
-      //location.reload();
     }
   }
 }
@@ -279,10 +278,7 @@ window.onload = function (e) {
       X[i].pauseTime,
       X[i].continueTime
     );
-    $("#stopwatches").append(
-      // document.getElementById("#stopwatches").append(
-      StopWatchBody(listStopWatch[listStopWatch.length - 1])
-    );
+    document.querySelector("#stopwatches").insertAdjacentHTML('afterend', StopWatchBody(listStopWatch[listStopWatch.length - 1]));
   }
 };
 
