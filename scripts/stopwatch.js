@@ -16,10 +16,7 @@ function GiveTimeString(theMilliseconds) {
 
 function GiveTimeStringTotal(theMilliseconds) {
   var secs = milisecondToSecond(theMilliseconds);
-  // var mins = secondToMinute(secs);
-  // var hrs = secondToHour(secs);
   secs = secs % 60;
-  // return "Total: " + hrs +" Hours " + mins +" Minutes " + secs +" Seconds ";
   return "Total: "
       + secondToHour(secs) +" Hours "
       + secondToMinute(secs) +" Minutes "
