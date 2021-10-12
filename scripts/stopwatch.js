@@ -16,11 +16,10 @@ function GiveTimeString(theMilliseconds) {
 
 function GiveTimeStringTotal(theMilliseconds) {
   var secs = milisecondToSecond(theMilliseconds);
-  secs = secs % 60;
   return "Total: "
     + secondToHour(secs) + " Hours "
     + secondToMinute(secs) + " Minutes "
-    + secs + " Seconds ";
+    + secs % 60 + " Seconds ";
 }
 
 function milisecondToSecond(theMilliseconds) {
@@ -40,16 +39,16 @@ function StopWatchBody(Watch) {
   var pausePlayButtonStr = function (isRunning) {
     if (isRunning == 1) {
       return (
-        "<button id='pause_btn' onclick='PausePlayToggle(this, " +
+        "<button id='pause_btn" + Watch.id + "' onclick='PausePlayToggle(this, " +
         Watch.id +
-        ")'>Pause</button>"
+        ")' style='background: orange; width: 172px;'>Pause</button>"
       );
     }
     else {
       return (
-        "<button id='start_btn' onclick='PausePlayToggle(this, " +
+        "<button id='start_btn" + Watch.id + "' onclick='PausePlayToggle(this, " +
         Watch.id +
-        ")'>Play</button>"
+        ")' style='background: #5CDB95; width: 172px;'>Play</button>"
       );
     }
   };
@@ -166,18 +165,20 @@ function RestartClock(id) {
 }
 
 function StopClock(id) {
+  console.log("stop"+id);
+  $("#pause_btn" + id).text("Play");
+  $("#pause_btn" + id).attr({"id": "start_btn","style": "background: #5CDB95; width: 172px;"});
   for (var i = 0; i < listStopWatch.length; i++) {
     if (listStopWatch[i].id == id) {
       listStopWatch[i].startTime = 0;
       document.getElementById("watch" + id).innerHTML = GiveTimeString(0);
       document.getElementById("total_jam" + id).style.color = 'white';
       listStopWatch[i].isRunning = 0;
-      showTotal(total);
       listStopWatch[i].timeDelays = 0;
       listStopWatch[i].pauseTime = 0;
       listStopWatch[i].continueTime = 0;
       StopWatchBody(listStopWatch[i].id);
-      location.reload();
+      //location.reload();
     }
   }
 }
@@ -187,9 +188,9 @@ function StopClock(id) {
 function PausePlayToggle(elem, id) {
   if (elem.innerHTML == "Pause") {
     elem.outerHTML =
-      "<button id='start_btn' onclick='PausePlayToggle(this, " +
+      "<button id='start_btn" + id + "' onclick='PausePlayToggle(this, " +
       id +
-      ")'>Play</button>";
+      ")' style='background: #5CDB95; width: 172px;'>Play</button>";
     for (var i = 0; i < listStopWatch.length; i++) {
       if (listStopWatch[i].id == id) {
         listStopWatch[i].isRunning = 0;
@@ -198,9 +199,9 @@ function PausePlayToggle(elem, id) {
     }
   } else if (elem.innerHTML == "Play") {
     elem.outerHTML =
-      "<button id='pause_btn' onclick='PausePlayToggle(this, " +
+      "<button id='pause_btn" + id + "' onclick='PausePlayToggle(this, " +
       id +
-      ")'>Pause</button>";
+      ")' style='background: #orange; width: 172px;'>Pause</button>";
     for (var i = 0; i < listStopWatch.length; i++) {
       if (listStopWatch[i].id == id) {
         listStopWatch[i].isRunning = 1;
