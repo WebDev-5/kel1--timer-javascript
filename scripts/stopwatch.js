@@ -4,9 +4,9 @@ var idCounter = 1; //gives id to the watch object
 
 //given time in seconds returns a string in format hh:mm:ss
 function GiveTimeString(theMilliseconds) {
-  var secs = Math.floor(theMilliseconds / 1000);
-  var mins = Math.floor(secs / 60);
-  var hrs = Math.floor(secs / 3600);
+  var secs = milisecondToSecond(theMilliseconds);
+  var mins = secondToMinute(secs);
+  var hrs = secondToHour(secs);
   secs = secs % 60
   if (hrs < 10) hrs = "0" + hrs;
   if (mins < 10) mins = "0" + mins;
@@ -15,14 +15,27 @@ function GiveTimeString(theMilliseconds) {
 }
 
 function GiveTimeStringTotal(theMilliseconds) {
-  var secs = Math.floor(theMilliseconds / 1000);
-  var mins = Math.floor(secs / 60);
-  var hrs = Math.floor(secs / 3600);
-  secs = secs % 60
-  if (hrs < 10) hrs = hrs;
-  if (mins < 10) mins = mins;
-  if (secs < 10) secs = secs;
-  return "Total: " + hrs +" Hours " + mins +" Minutes " + secs +" Seconds ";
+  var secs = milisecondToSecond(theMilliseconds);
+  // var mins = secondToMinute(secs);
+  // var hrs = secondToHour(secs);
+  secs = secs % 60;
+  // return "Total: " + hrs +" Hours " + mins +" Minutes " + secs +" Seconds ";
+  return "Total: "
+      + secondToHour(secs) +" Hours "
+      + secondToMinute(secs) +" Minutes "
+      + secs +" Seconds ";
+}
+
+function milisecondToSecond(theMilliseconds) {
+  return Math.floor(theMilliseconds / 1000);
+}
+
+function secondToMinute(seconds) {
+  return Math.floor(seconds / 60);
+}
+
+function secondToHour(seconds) {
+  return Math.floor(seconds / 3600);
 }
 
 //returns html body for the watch
