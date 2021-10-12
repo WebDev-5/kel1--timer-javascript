@@ -18,9 +18,9 @@ function GiveTimeStringTotal(theMilliseconds) {
   var secs = milisecondToSecond(theMilliseconds);
   secs = secs % 60;
   return "Total: "
-      + secondToHour(secs) +" Hours "
-      + secondToMinute(secs) +" Minutes "
-      + secs +" Seconds ";
+    + secondToHour(secs) + " Hours "
+    + secondToMinute(secs) + " Minutes "
+    + secs + " Seconds ";
 }
 
 function milisecondToSecond(theMilliseconds) {
@@ -131,7 +131,7 @@ function Watch(
 //adds watch to DOM
 function AddWatch() {
   listStopWatch[listStopWatch.length] = new Watch();
-  $("#stopwatches").append(
+  document.getElementById("#stopwatches").append(
     StopWatchBody(listStopWatch[listStopWatch.length - 1])
   );
   document.getElementById("title").value = "";
@@ -214,9 +214,9 @@ function PausePlayToggle(elem, id) {
           listStopWatch[i].timeDelays = listStopWatch[i].timeDelays + (listStopWatch[i].continueTime - listStopWatch[i].pauseTime)
         }
       }
-      else if(listStopWatch[i].isRunning == 1){
-          listStopWatch[i].pauseTime = Date.now();
-          listStopWatch[i].isRunning = 0;  
+      else if (listStopWatch[i].isRunning == 1) {
+        listStopWatch[i].pauseTime = Date.now();
+        listStopWatch[i].isRunning = 0;
       }
     }
     location.reload();
@@ -228,7 +228,7 @@ function RemoveAll() {
   localStorage.clear();
   listStopWatch = [];
   idCounter = 1;
-  $("#stopwatches").html("");
+  document.getElementById("#stopwatches").html("");
 }
 
 //updates the time in clocks
@@ -266,6 +266,38 @@ window.onbeforeunload = function (e) {
 };
 
 //load the list of stopwatches in listStopWatch and attach them to html is list is present in cookie.
+// (function (window, document, undefined) {
+
+//   // code that should be taken care of right away
+//   // e = e || window.event;
+//   localStorage.setItem('lastOpened', Date.now());
+//   var X = JSON.parse(localStorage.getItem("myCookie"));
+
+//   window.onload = init;
+
+//   function init() {
+//     // the code to be called when the dom has loaded
+//     // #document has its nodes
+//     for (var i = 0; i < X.length; i++) {
+//       listStopWatch[listStopWatch.length] = new Watch(
+//         X[i].isRunning,
+//         X[i].title,
+//         X[i].startTime,
+//         X[i].timeDelays,
+//         X[i].pauseTime,
+//         X[i].continueTime
+//       );
+//       // $("#stopwatches").append(
+//       // document.getElementById("#stopwatches").append(
+//       var temp = document.getElementById("#stopwatches")
+//       temp.append(
+//         StopWatchBody(listStopWatch[listStopWatch.length - 1])
+//       );
+//     }
+//   }
+
+// })(window, document, undefined);
+
 window.onload = function (e) {
   e = e || window.event;
   localStorage.setItem('lastOpened', Date.now());
@@ -280,6 +312,7 @@ window.onload = function (e) {
       X[i].continueTime
     );
     $("#stopwatches").append(
+      // document.getElementById("#stopwatches").append(
       StopWatchBody(listStopWatch[listStopWatch.length - 1])
     );
   }
