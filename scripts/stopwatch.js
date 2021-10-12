@@ -4,9 +4,9 @@ var idCounter = 1; //gives id to the watch object
 
 //given time in seconds returns a string in format hh:mm:ss
 function GiveTimeString(theMilliseconds) {
-  var secs = Math.floor(theMilliseconds / 1000);
-  var mins = Math.floor(secs / 60);
-  var hrs = Math.floor(secs / 3600);
+  var secs = milisecondToSecond(theMilliseconds);
+  var mins = secondToMinute(secs);
+  var hrs = secondToHour(secs);
   secs = secs % 60
   if (hrs < 10) hrs = "0" + hrs;
   if (mins < 10) mins = "0" + mins;
@@ -15,14 +15,24 @@ function GiveTimeString(theMilliseconds) {
 }
 
 function GiveTimeStringTotal(theMilliseconds) {
-  var secs = Math.floor(theMilliseconds / 1000);
-  var mins = Math.floor(secs / 60);
-  var hrs = Math.floor(secs / 3600);
-  secs = secs % 60
-  if (hrs < 10) hrs = hrs;
-  if (mins < 10) mins = mins;
-  if (secs < 10) secs = secs;
-  return "Total: " + hrs +" Hours " + mins +" Minutes " + secs +" Seconds ";
+  var secs = milisecondToSecond(theMilliseconds);
+  secs = secs % 60;
+  return "Total: "
+    + secondToHour(secs) + " Hours "
+    + secondToMinute(secs) + " Minutes "
+    + secs + " Seconds ";
+}
+
+function milisecondToSecond(theMilliseconds) {
+  return Math.floor(theMilliseconds / 1000);
+}
+
+function secondToMinute(seconds) {
+  return Math.floor(seconds / 60);
+}
+
+function secondToHour(seconds) {
+  return Math.floor(seconds / 3600);
 }
 
 //returns html body for the watch
@@ -121,7 +131,7 @@ function Watch(
 //adds watch to DOM
 function AddWatch() {
   listStopWatch[listStopWatch.length] = new Watch();
-  $("#stopwatches").append(
+  document.getElementById("#stopwatches").append(
     StopWatchBody(listStopWatch[listStopWatch.length - 1])
   );
   document.getElementById("title").value = "";
@@ -204,9 +214,9 @@ function PausePlayToggle(elem, id) {
           listStopWatch[i].timeDelays = listStopWatch[i].timeDelays + (listStopWatch[i].continueTime - listStopWatch[i].pauseTime)
         }
       }
-      else if(listStopWatch[i].isRunning == 1){
-          listStopWatch[i].pauseTime = Date.now();
-          listStopWatch[i].isRunning = 0;  
+      else if (listStopWatch[i].isRunning == 1) {
+        listStopWatch[i].pauseTime = Date.now();
+        listStopWatch[i].isRunning = 0;
       }
     }
     location.reload();
@@ -218,7 +228,7 @@ function RemoveAll() {
   localStorage.clear();
   listStopWatch = [];
   idCounter = 1;
-  $("#stopwatches").html("");
+  document.getElementById("#stopwatches").html("");
 }
 
 //updates the time in clocks
@@ -255,7 +265,6 @@ window.onbeforeunload = function (e) {
   localStorage.setItem("myCookie", JSON.stringify(listStopWatch));
 };
 
-//load the list of stopwatches in listStopWatch and attach them to html is list is present in cookie.
 window.onload = function (e) {
   e = e || window.event;
   localStorage.setItem('lastOpened', Date.now());
@@ -270,6 +279,7 @@ window.onload = function (e) {
       X[i].continueTime
     );
     $("#stopwatches").append(
+      // document.getElementById("#stopwatches").append(
       StopWatchBody(listStopWatch[listStopWatch.length - 1])
     );
   }
