@@ -265,39 +265,6 @@ window.onbeforeunload = function (e) {
   localStorage.setItem("myCookie", JSON.stringify(listStopWatch));
 };
 
-//load the list of stopwatches in listStopWatch and attach them to html is list is present in cookie.
-// (function (window, document, undefined) {
-
-//   // code that should be taken care of right away
-//   // e = e || window.event;
-//   localStorage.setItem('lastOpened', Date.now());
-//   var X = JSON.parse(localStorage.getItem("myCookie"));
-
-//   window.onload = init;
-
-//   function init() {
-//     // the code to be called when the dom has loaded
-//     // #document has its nodes
-//     for (var i = 0; i < X.length; i++) {
-//       listStopWatch[listStopWatch.length] = new Watch(
-//         X[i].isRunning,
-//         X[i].title,
-//         X[i].startTime,
-//         X[i].timeDelays,
-//         X[i].pauseTime,
-//         X[i].continueTime
-//       );
-//       // $("#stopwatches").append(
-//       // document.getElementById("#stopwatches").append(
-//       var temp = document.getElementById("#stopwatches")
-//       temp.append(
-//         StopWatchBody(listStopWatch[listStopWatch.length - 1])
-//       );
-//     }
-//   }
-
-// })(window, document, undefined);
-
 window.onload = function (e) {
   e = e || window.event;
   localStorage.setItem('lastOpened', Date.now());
