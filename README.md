@@ -26,7 +26,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/WebDev-5/kel5-timer-javascript">
-    <img src="images/icon.png" alt="Logo" width="80" height="80">
+    <img src="assets/images/icon.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Multi Stopwatch Kelompok 5</h3>
@@ -77,7 +77,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/WebDev-5/kel5-timer-javascript)
 
 Multi Stopwatch is an application that was built to fulfill a mini project assignment for Web Development course, which was developed by Webdev Kelompok 5 D4 2019 Politeknik Negeri Bandung.
 This an application that is a simulation of a stopwatch or timer, which can be used to calculate and set the time for each activity you do. This application is built using HTML, CSS, and Vanilla Javascript. 
@@ -137,6 +137,10 @@ To use this application, you can :
 6. Use the `x` in the corner to close and remove the timer.
 7.  Use the `Remove All`  to close and remove the all timers.
 
+For example :
+
+[![Watch the video](assets/video/demo.gif)](https://github.com/WebDev-5/kel5-timer-javascript)
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -151,6 +155,7 @@ To use this application, you can :
 - [x] Add local storage to keep running in the background.
 - [x] Add multiple timer feature.
 - [x] Fix and update local storage.  
+- [x] Fix and remove display bug. 
 
 See the [open issues](https://github.com/WebDev-5/kel5-timer-javascript/issues) for a full list of proposed features (and known issues).
 
@@ -195,7 +200,7 @@ Distributed under the MIT License. See [LICENSE.md](https://github.com/WebDev-5/
 * [Nabil Putra Hadiyani](https://github.com/nabilputrah)
 * [Shinta Nurkaafi](https://github.com/NurMeiTaa)
 
-Project Link: [Multi Stopwatch Kelompok 5](https://github.com/WebDev-5/kel5-timer-javascript)
+Project Link: [Multiple Stopwatch Kelompok 5](https://github.com/WebDev-5/kel5-timer-javascript)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -226,4 +231,4 @@ Use this space to list resources you find helpful and would like to give credit 
 [issues-url]: https://github.com/WebDev-5/kel5-timer-javascript/issues
 [license-shield]: https://img.shields.io/github/license/WebDev-5/kel5-timer-javascript?style=for-the-badge&logo=appveyor
 [license-url]: https://github.com/WebDev-5/kel5-timer-javascript/blob/main/LICENSE.md
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: assets/images/screenshot.png
