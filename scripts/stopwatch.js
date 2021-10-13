@@ -14,6 +14,7 @@ function GiveTimeString(theMilliseconds) {
   return hrs + ":" + mins + ":" + secs;
 }
 
+//given time total returns a string in format hh:mm:ss
 function GiveTimeStringTotal(theMilliseconds) {
   var secs = milisecondToSecond(theMilliseconds);
   return "Total: "
@@ -164,6 +165,7 @@ function RestartClock(id) {
   }
 }
 
+//stop the time for one clock
 function StopClock(id) {
   document.querySelector("#pause_btn"+id).innerHTML = "Play";
   document.querySelector("#pause_btn"+id).setAttribute('style', "background: #5CDB95; width: 172px;");
@@ -182,8 +184,7 @@ function StopClock(id) {
   }
 }
 
-
-//for pause play
+//for pause and play
 function PausePlayToggle(elem, id) {
   if (elem.innerHTML == "Pause") {
     elem.outerHTML =
