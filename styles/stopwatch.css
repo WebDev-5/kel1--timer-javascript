@@ -271,11 +271,12 @@ button:focus {
   height: 30px;
   color: white;
   font-size: 15px;
-  text-align: center;
+  bottom: 0;
 }
 
 .license{
   border-top: 1px solid #ddd;
+  text-align: center;
   font-family: 'Baloo Chettan 2';
   color: white;
   font-size: 17px;
