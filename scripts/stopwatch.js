@@ -165,14 +165,14 @@ function RestartClock(id) {
 }
 
 function StopClock(id) {
-  document.querySelector("#pause_btn"+id).innerHTML = "Play";
-  document.querySelector("#pause_btn"+id).setAttribute('style', "background: #5CDB95; width: 172px;");
-  document.querySelector("#pause_btn"+id).setAttribute('id', "start_btn"+id);
+  document.querySelector("#pause_btn" + id).innerHTML = "Play";
+  document.querySelector("#pause_btn" + id).setAttribute('style', "background: #5CDB95; width: 172px;");
+  document.querySelector("#pause_btn" + id).setAttribute('id', "start_btn" + id);
   for (var i = 0; i < listStopWatch.length; i++) {
     if (listStopWatch[i].id == id) {
       listStopWatch[i].startTime = 0;
-      document.getElementById("watch" + id).innerHTML = GiveTimeString(0);
-      document.getElementById("total_jam" + id).style.color = 'white';
+      document.querySelector("#watch" + id).innerHTML = GiveTimeString(0);
+      document.querySelector("#total_jam" + id).style.color = 'white';
       listStopWatch[i].isRunning = 0;
       listStopWatch[i].timeDelays = 0;
       listStopWatch[i].pauseTime = 0;
@@ -186,10 +186,9 @@ function StopClock(id) {
 //for pause play
 function PausePlayToggle(elem, id) {
   if (elem.innerHTML == "Pause") {
-    elem.outerHTML =
-      "<button id='start_btn" + id + "' onclick='PausePlayToggle(this, " +
-      id +
-      ")' style='background: #5CDB95; width: 172px;'>Play</button>";
+    document.querySelector("#pause_btn" + id).setAttribute('style', "background: #5CDB95; width: 172px;");
+    document.querySelector("#pause_btn" + id).setAttribute('id', "start_btn" + id);
+    document.querySelector("#start_btn" + id).innerHTML = "Play";
     for (var i = 0; i < listStopWatch.length; i++) {
       if (listStopWatch[i].id == id) {
         listStopWatch[i].isRunning = 0;
@@ -197,14 +196,14 @@ function PausePlayToggle(elem, id) {
       }
     }
   } else if (elem.innerHTML == "Play") {
-    elem.outerHTML =
-      "<button id='pause_btn" + id + "' onclick='PausePlayToggle(this, " +
-      id +
-      ")' style='background: #orange; width: 172px;'>Pause</button>";
+    document.querySelector("#total_jam" + id).style.color = '#63B4B8';
+    document.querySelector("#start_btn" + id).setAttribute('style', "background: orange; width: 172px;");
+    document.querySelector("#start_btn" + id).setAttribute('id', "pause_btn" + id);
+    document.querySelector("#pause_btn" + id).innerHTML = "Pause";
     for (var i = 0; i < listStopWatch.length; i++) {
       if (listStopWatch[i].id == id) {
         listStopWatch[i].isRunning = 1;
-        if (listStopWatch[i].startTime == 0) {//pertamakali
+        if (listStopWatch[i].startTime == 0) {
           listStopWatch[i].startTime = Date.now();
           listStopWatch[i].timeDelays = 0;
           listStopWatch[i].pauseTime = 0;
@@ -214,12 +213,14 @@ function PausePlayToggle(elem, id) {
           listStopWatch[i].timeDelays = listStopWatch[i].timeDelays + (listStopWatch[i].continueTime - listStopWatch[i].pauseTime)
         }
       }
-      else if (listStopWatch[i].isRunning == 1) {
+      else if (listStopWatch[i].isRunning == 1 && listStopWatch[i].id != id) {
         listStopWatch[i].pauseTime = Date.now();
         listStopWatch[i].isRunning = 0;
+        document.querySelector("#pause_btn"+listStopWatch[i].id).innerHTML = "Play";
+        document.querySelector("#pause_btn"+listStopWatch[i].id).setAttribute('style', "background: #5CDB95; width: 172px;");
+        document.querySelector("#pause_btn"+listStopWatch[i].id).setAttribute('id', "start_btn"+listStopWatch[i].id);
       }
     }
-    location.reload();
   }
 }
 
@@ -296,12 +297,3 @@ addWatchButton.addEventListener("click", AddWatch);
 
 var removeAllButton = document.getElementById("removeAll_btn");
 removeAllButton.addEventListener("click", RemoveAll);
-
-const total = document.querySelector('#total_jam');
-
-function showTotal(Total) {
-  Total.style.display = "block";
-}
-function hideTotal(Total) {
-  Total.style.display = "none";
-}
