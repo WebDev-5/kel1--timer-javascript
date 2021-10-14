@@ -110,6 +110,9 @@ function Watch(
   idCounter += 1;
   this.isRunning = isRunning; // 0 -> pause state 1 -> play state
   this.title = title;
+  if(this.title==""){
+    this.title = "Untitled";
+  }
   this.startTime = startTime;
   this.timeDelays = timeDelays;
   this.pauseTime = pauseTime;
