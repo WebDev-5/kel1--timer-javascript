@@ -4,9 +4,9 @@ var idCounter = 1; //gives id to the watch object
 
 //given time in seconds returns a string in format hh:mm:ss
 function GiveTimeString(theMilliseconds) {
-  var secs = milisecondToSecond(theMilliseconds);
-  var mins = secondToMinute(secs);
-  var hrs = secondToHour(secs);
+  var secs = Math.floor(theMilliseconds / 1000);
+  var mins = Math.floor(secs / 60) % 60;
+  var hrs = Math.floor(secs / 3600);
   secs = secs % 60
   if (hrs < 10) hrs = "0" + hrs;
   if (mins < 10) mins = "0" + mins;
@@ -16,23 +16,11 @@ function GiveTimeString(theMilliseconds) {
 
 //given time total returns a string in format hh:mm:ss
 function GiveTimeStringTotal(theMilliseconds) {
-  var secs = milisecondToSecond(theMilliseconds);
+  var secs = Math.floor(theMilliseconds / 1000);
   return "Total: "
-    + secondToHour(secs) + " Hours "
-    + secondToMinute(secs) + " Minutes "
+    + Math.floor(secs / 3600) + " Hours "
+    + Math.floor(secs / 60) % 60 + " Minutes "
     + secs % 60 + " Seconds ";
-}
-
-function milisecondToSecond(theMilliseconds) {
-  return Math.floor(theMilliseconds / 1000);
-}
-
-function secondToMinute(seconds) {
-  return Math.floor(seconds / 60);
-}
-
-function secondToHour(seconds) {
-  return Math.floor(seconds / 3600);
 }
 
 //returns html body for the watch
@@ -167,9 +155,12 @@ function RestartClock(id) {
 
 //stop the time for one clock
 function StopClock(id) {
-  document.querySelector("#pause_btn" + id).innerHTML = "Play";
-  document.querySelector("#pause_btn" + id).setAttribute('style', "background: #5CDB95; width: 172px;");
-  document.querySelector("#pause_btn" + id).setAttribute('id', "start_btn" + id);
+  try {
+    document.querySelector("#pause_btn" + id).innerHTML = "Play";
+    document.querySelector("#pause_btn" + id).setAttribute('style', "background: #5CDB95; width: 172px;");
+    document.querySelector("#pause_btn" + id).setAttribute('id', "start_btn" + id);
+  } catch (err) {
+  }
   for (var i = 0; i < listStopWatch.length; i++) {
     if (listStopWatch[i].id == id) {
       listStopWatch[i].startTime = 0;
@@ -217,9 +208,9 @@ function PausePlayToggle(elem, id) {
       else if (listStopWatch[i].isRunning == 1 && listStopWatch[i].id != id) {
         listStopWatch[i].pauseTime = Date.now();
         listStopWatch[i].isRunning = 0;
-        document.querySelector("#pause_btn"+listStopWatch[i].id).innerHTML = "Play";
-        document.querySelector("#pause_btn"+listStopWatch[i].id).setAttribute('style', "background: #5CDB95; width: 172px;");
-        document.querySelector("#pause_btn"+listStopWatch[i].id).setAttribute('id', "start_btn"+listStopWatch[i].id);
+        document.querySelector("#pause_btn" + listStopWatch[i].id).innerHTML = "Play";
+        document.querySelector("#pause_btn" + listStopWatch[i].id).setAttribute('style', "background: #5CDB95; width: 172px;");
+        document.querySelector("#pause_btn" + listStopWatch[i].id).setAttribute('id', "start_btn" + listStopWatch[i].id);
       }
     }
   }
