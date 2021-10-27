@@ -230,4 +230,4 @@ We've included a few of our favorites to kick things off!
 [issues-url]: https://github.com/WebDev-5/kel5-timer-javascript/issues
 [license-shield]: https://img.shields.io/github/license/WebDev-5/kel5-timer-javascript?style=for-the-badge&logo=appveyor
 [license-url]: https://github.com/WebDev-5/kel5-timer-javascript/blob/main/LICENSE.md
-[product-screenshot]: assets/images/screenshot.jpg
+[product-screenshot]: assets/images/screenshot.png
