@@ -34,10 +34,10 @@
   <p align="center">
     An awesome Stopwatch to manage your time!
     <br />
-    <a href="https://github.com/WebDev-5/kel5-timer-javascript"><strong>Open Application »</strong></a>
+    <a href="#installation"><strong>Open Application »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/WebDev-5/kel5-timer-javascript">View Demo</a>
+    <a href="#usage">View Demo</a>
     ·
     <a href="https://github.com/WebDev-5/kel5-timer-javascript/issues">Report Bug</a>
     ·
@@ -80,7 +80,7 @@
 [![Product Name Screen Shot][product-screenshot]](https://github.com/WebDev-5/kel5-timer-javascript)
 
 Multi Stopwatch is an application that was built to fulfill a mini project assignment for Web Development course, which was developed by Webdev Kelompok 5 D4 2019 Politeknik Negeri Bandung.
-This an application that is a simulation of a stopwatch or timer, which can be used to calculate and set the time for each activity you do. This application is built using HTML, CSS, and Vanilla Javascript. 
+This an application that is a simulation of a stopwatch or timer, which can be used to calculate and set the time for each activity you do. This application is built using HTML, CSS, and Vanilla.js. 
 Still remember, take advantage and don't waste your time!
 
 The following are the features of this application :
@@ -100,7 +100,7 @@ The following are the frameworks and libraries that build this application :
 
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML/)
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-* [Vanilla.js](http://vanilla-js.com/)
+* [Vanilla.js](http://vanilla-js.com)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -118,7 +118,7 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    git clone https://github.com/WebDev-5/kel5-timer-javascript
    ```
-2. Open the `index.html` with your browser.
+2. Open the `index.html` with your browser in folder `kel5-timer-javascript`.
 3. Run application.
    
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -209,11 +209,10 @@ Project Link: [Multiple Stopwatch Kelompok 5](https://github.com/WebDev-5/kel5-t
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
+We've included a few of our favorites to kick things off!
 
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
 * [Readme Template](https://github.com/othneildrew/Best-README-Template)
+* [Image Shields](https://shields.io/category/build)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -231,4 +230,4 @@ Use this space to list resources you find helpful and would like to give credit 
 [issues-url]: https://github.com/WebDev-5/kel5-timer-javascript/issues
 [license-shield]: https://img.shields.io/github/license/WebDev-5/kel5-timer-javascript?style=for-the-badge&logo=appveyor
 [license-url]: https://github.com/WebDev-5/kel5-timer-javascript/blob/main/LICENSE.md
-[product-screenshot]: assets/images/screenshot.png
+[product-screenshot]: assets/images/screenshot.jpg
