@@ -114,7 +114,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Installation
 
-1. Clone the repository
+1. Clone the repository.
    ```sh
    git clone https://github.com/WebDev-5/kel5-timer-javascript
    ```
